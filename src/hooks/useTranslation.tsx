@@ -9,9 +9,12 @@ const doTranslation = debounce(
     languageCode: string,
     callback: (data: string) => void
   ) => {
+    // TODO: get a working access key from google translate api
+    const ACCESSKEY = "AIzaSyCf0Xy0OnhxldhyEy3K8zP-sOuu-l_u6uA";
+
     try {
       const { data } = await axios.post(
-        "https://translation.googleapis.com/language/translate/v2?key=AIzaSyCf0Xy0OnhxlduyEt3K8zP-sOuu-l_u6uA",
+        `https://translation.googleapis.com/language/translate/v2?key=${ACCESSKEY}`,
         {
           q: input,
           target: languageCode,
